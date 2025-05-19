@@ -1,41 +1,67 @@
 <mat-card>
-  <mat-toolbar color="primary">Student List</mat-toolbar>
 
+  <!-- Language Switcher -->
+  <div style="display: flex; justify-content: flex-end; margin: 10px;">
+    <label for="lang-select" style="margin-right: 8px;">{{ 'STUDENT.LANGUAGE' | translate }}:</label>
+    <select id="lang-select" (change)="onLanguageChange($event)">
+      <option value="en" [selected]="currentLang === 'en'">English</option>
+      <option value="de" [selected]="currentLang === 'de'">Deutsch</option>
+      <option value="fr" [selected]="currentLang === 'fr'">Français</option>
+      <option value="it" [selected]="currentLang === 'it'">Italiano</option>
+    </select>
+  </div>
+  <!-- Toolbar with Title and Create Button -->
+  <mat-toolbar color="primary">
+    {{ 'STUDENT.LIST_TITLE' | translate }}
+    <span class="spacer"></span>
+    <button mat-raised-button color="accent" [routerLink]="['/students/new']">
+      {{ 'STUDENT.CREATE_TITLE' | translate }}
+    </button>
+  </mat-toolbar>
+
+  <!-- Student Table -->
   <table mat-table [dataSource]="students" class="mat-elevation-z8" style="width: 100%; margin-top: 16px;">
 
+    <!-- ID Column -->
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef> ID </th>
-      <td mat-cell *matCellDef="let student"> {{ student.id }} </td>
+      <td mat-cell *matCellDef="let student"> {{ student?.id }} </td>
     </ng-container>
 
+    <!-- First Name -->
     <ng-container matColumnDef="firstName">
-      <th mat-header-cell *matHeaderCellDef> First Name </th>
-      <td mat-cell *matCellDef="let student"> {{ student.firstName }} </td>
+      <th mat-header-cell *matHeaderCellDef> {{ 'STUDENT.FIRST_NAME' | translate }} </th>
+      <td mat-cell *matCellDef="let student"> {{ student?.firstName }} </td>
     </ng-container>
 
+    <!-- Last Name -->
     <ng-container matColumnDef="lastName">
-      <th mat-header-cell *matHeaderCellDef> Last Name </th>
-      <td mat-cell *matCellDef="let student"> {{ student.lastName }} </td>
+      <th mat-header-cell *matHeaderCellDef> {{ 'STUDENT.LAST_NAME' | translate }} </th>
+      <td mat-cell *matCellDef="let student"> {{ student?.lastName }} </td>
     </ng-container>
 
+    <!-- Email -->
     <ng-container matColumnDef="email">
-      <th mat-header-cell *matHeaderCellDef> Email </th>
-      <td mat-cell *matCellDef="let student"> {{ student.email }} </td>
+      <th mat-header-cell *matHeaderCellDef> {{ 'STUDENT.EMAIL' | translate }} </th>
+      <td mat-cell *matCellDef="let student"> {{ student?.email }} </td>
     </ng-container>
 
+    <!-- Actions -->
     <ng-container matColumnDef="actions">
-      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <th mat-header-cell *matHeaderCellDef> {{ 'STUDENT.ACTIONS' | translate }} </th>
       <td mat-cell *matCellDef="let student">
-        <button mat-icon-button color="primary" (click)="editStudent(student.id)">
+        <button mat-icon-button color="primary" (click)="editStudent(student?.id)">
           <mat-icon>edit</mat-icon>
         </button>
-        <button mat-icon-button color="warn" (click)="deleteStudent(student.id)">
+        <button mat-icon-button color="warn" (click)="deleteStudent(student?.id)">
           <mat-icon>delete</mat-icon>
         </button>
       </td>
     </ng-container>
 
+    <!-- Table Rows -->
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+
 </mat-card>

@@ -1,19 +1,22 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule, Router } from '@angular/router';
 import { StudentService } from '../student.service';
 import { Student } from '../student.model';
-import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { Router } from '@angular/router';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-student-list',
   standalone: true,
   imports: [
     CommonModule,
+    RouterModule,
+    TranslateModule,
     MatCardModule,
     MatToolbarModule,
     MatTableModule,
@@ -26,8 +29,13 @@ import { Router } from '@angular/router';
 export class StudentListComponent implements OnInit {
   students: Student[] = [];
   displayedColumns: string[] = ['id', 'firstName', 'lastName', 'email', 'actions'];
+  currentLang = 'en';
 
-  constructor(private studentService: StudentService, private router: Router) {}
+  constructor(
+    private studentService: StudentService,
+    private router: Router,
+    private translate: TranslateService
+  ) {}
 
   ngOnInit(): void {
     this.loadStudents();
@@ -45,10 +53,22 @@ export class StudentListComponent implements OnInit {
   }
 
   deleteStudent(id: number): void {
-    if (confirm('Are you sure you want to delete this student?')) {
-      this.studentService.delete(id).subscribe(() => {
-        this.loadStudents(); // Refresh list after deletion
+    if (confirm(this.translate.instant('STUDENT.DELETE_CONFIRM'))) {
+      this.studentService.delete(id).subscribe({
+        next: () => this.loadStudents(),
+        error: (err) => console.error('Error deleting student:', err)
       });
     }
   }
+
+  switchLang(lang: string): void {
+    this.currentLang = lang;
+    this.translate.use(lang);
+  }
+
+  onLanguageChange(event: Event): void {
+  const selectElement = event.target as HTMLSelectElement;
+  const lang = selectElement.value;
+  this.switchLang(lang);
+}
 }

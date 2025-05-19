@@ -1,9 +1,31 @@
-.full-width {
-  width: 100%;
-  margin-bottom: 16px;
+.student-form-card {
+  max-width: 900px;
+  margin: 32px auto;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-mat-card {
-  margin: 16px;
-  padding: 24px;
+.student-form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px; // Vertical spacing between form rows
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px; // Horizontal spacing between fields
+  margin-bottom: 8px;
+}
+
+mat-form-field {
+  flex: 1;
+  min-width: 260px; // Each field has enough space
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 24px;
 }

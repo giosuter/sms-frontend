@@ -1,0 +1,33 @@
+{
+  "STUDENT": {
+    "LIST_TITLE": "Liste des étudiants",
+    "CREATE_TITLE": "Créer un nouvel étudiant",
+    "EDIT_TITLE": "Modifier l'étudiant",
+    "FIRST_NAME": "Prénom",
+    "LAST_NAME": "Nom",
+    "EMAIL": "Email",
+    "ACTIONS": "Actions",
+    "ADDRESS": "Adresse",
+    "PLZ": "Code postal",
+    "CITY": "Ville",
+    "COUNTRY": "Pays",
+    "NATIONALITY": "Nationalité",
+    "DATE_OF_BIRTH": "Date de naissance",
+    "GENDER": "Genre",
+    "STUDENT_ID": "ID Étudiant",
+    "ENROLLMENT_DATE": "Date d'inscription",
+    "STATUS": "Statut",
+    "PROGRAM_LEVEL": "Niveau d'études",
+    "SAVE": "Enregistrer",
+    "CREATE": "Créer",
+    "UPDATE": "Mettre à jour",
+    "CANCEL": "Annuler",
+    "DELETE_CONFIRM": "Voulez-vous vraiment supprimer cet étudiant ?",
+    "CREATION_SUCCESS": "Étudiant créé avec succès !",
+    "UPDATE_SUCCESS": "Étudiant mis à jour avec succès !",
+    "DELETE_SUCCESS": "Étudiant supprimé avec succès !",
+    "ACTION_FAILED": "Échec de l'action",
+    "LANGUAGE": "Langue",
+    "PHONE": "Numéro de téléphone"
+  }
+}
