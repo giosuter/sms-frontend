@@ -8,25 +8,25 @@ import { environment } from '../../environments/environment';
 export class StudentService {
   private apiUrl = `${environment.apiUrl}/students`;
 
-  constructor(private http: HttpClient) {}  
+  constructor(private http: HttpClient) {}
 
   getAll(): Observable<Student[]> {
-    return this.http.get<Student[]>(this.apiUrl);
+    return this.http.get<Student[]>(this.apiUrl, { withCredentials: true });
   }
 
   getById(id: number): Observable<Student> {
-    return this.http.get<Student>(`${this.apiUrl}/${id}`);
+    return this.http.get<Student>(`${this.apiUrl}/${id}`, { withCredentials: true });
   }
 
   create(student: Student): Observable<Student> {
-    return this.http.post<Student>(this.apiUrl, student);
+    return this.http.post<Student>(this.apiUrl, student, { withCredentials: true });
   }
 
   update(id: number, student: Student): Observable<Student> {
-    return this.http.put<Student>(`${this.apiUrl}/${id}`, student);
+    return this.http.put<Student>(`${this.apiUrl}/${id}`, student, { withCredentials: true });
   }
 
   delete(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/${id}`, { withCredentials: true });
   }
 }

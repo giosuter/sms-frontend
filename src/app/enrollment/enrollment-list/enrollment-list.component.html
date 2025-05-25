@@ -1,0 +1,48 @@
+<h2>{{ 'ENROLLMENT.TITLE' | translate }}</h2>
+
+<div class="filters">
+  <label>
+    {{ 'ENROLLMENT.FILTER.STUDENT' | translate }}
+    <input type="text"
+           [(ngModel)]="studentFilter"
+           (input)="onFilterChange()"
+           placeholder="{{ 'ENROLLMENT.FILTER.STUDENT_PLACEHOLDER' | translate }}">
+  </label>
+
+  <label>
+    {{ 'ENROLLMENT.FILTER.COURSE' | translate }}
+    <input type="text"
+           [(ngModel)]="courseFilter"
+           (input)="onFilterChange()"
+           placeholder="{{ 'ENROLLMENT.FILTER.COURSE_PLACEHOLDER' | translate }}">
+  </label>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th (click)="setSort('id')">{{ 'ENROLLMENT.ID' | translate }}</th>
+      <th (click)="setSort('studentName')">{{ 'ENROLLMENT.STUDENT' | translate }}</th>
+      <th (click)="setSort('courseName')">{{ 'ENROLLMENT.COURSE' | translate }}</th>
+      <th (click)="setSort('enrollmentDate')">{{ 'ENROLLMENT.DATE' | translate }}</th>
+      <th (click)="setSort('status')">{{ 'ENROLLMENT.STATUS' | translate }}</th>
+      <th (click)="setSort('grade')">{{ 'ENROLLMENT.GRADE' | translate }}</th>
+      <th (click)="setSort('notes')">{{ 'ENROLLMENT.NOTES' | translate }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let enrollment of filteredEnrollments">
+      <td>{{ enrollment.id }}</td>
+      <td>{{ enrollment.studentName }}</td>
+      <td>{{ enrollment.courseName }}</td>
+      <td>{{ enrollment.enrollmentDate | date: 'yyyy-MM-dd' }}</td>
+      <td>{{ enrollment.status }}</td>
+      <td>{{ enrollment.grade }}</td>
+      <td>{{ enrollment.notes }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="filteredEnrollments.length === 0">
+  <p>{{ 'ENROLLMENT.NO_RESULTS' | translate }}</p>
+</div>

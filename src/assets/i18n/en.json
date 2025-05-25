@@ -34,5 +34,27 @@
     "INVALID_EMAIL": "Invalid email format",
     "LANGUAGE": "Language",
     "PHONE": "Phone Number"
+  },
+  "ENROLLMENT": {
+    "TITLE": "Enrollment List",
+    "FILTER": {
+      "STUDENT": "Filter by Student",
+      "COURSE": "Filter by Course",
+      "STUDENT_PLACEHOLDER": "Enter student name...",
+      "COURSE_PLACEHOLDER": "Enter course name..."
+    },
+    "ID": "ID",
+    "STUDENT": "Student",
+    "COURSE": "Course",
+    "DATE": "Enrollment Date",
+    "STATUS": "Status",
+    "GRADE": "Grade",
+    "NOTES": "Notes",
+    "ACTIONS": "Actions",
+    "DELETE_CONFIRM": "Are you sure you want to delete this enrollment?",
+    "DELETE_SUCCESS": "Enrollment deleted successfully!",
+    "DELETE_FAILED": "Deletion failed!",
+    "NO_RESULTS": "No enrollments found",
+    "LOADING": "Loading enrollments..."
   }
 }

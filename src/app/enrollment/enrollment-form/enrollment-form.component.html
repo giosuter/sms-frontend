@@ -1,0 +1,49 @@
+<h2 *ngIf="!editMode" i18n>Create Enrollment</h2>
+<h2 *ngIf="editMode" i18n>Edit Enrollment</h2>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label i18n>Student</mat-label>
+    <mat-select formControlName="studentId" required>
+      <mat-option *ngFor="let student of students" [value]="student.id">
+        {{ student.firstName }} {{ student.lastName }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label i18n>Course</mat-label>
+    <mat-select formControlName="courseId" required>
+      <mat-option *ngFor="let course of courses" [value]="course.id">
+        {{ course.courseName }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label i18n>Enrollment Date</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="enrollmentDate">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label i18n>Status</mat-label>
+    <input matInput formControlName="status">
+  </mat-form-field>
+
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label i18n>Grade</mat-label>
+    <input matInput formControlName="grade">
+  </mat-form-field>
+
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label i18n>Notes</mat-label>
+    <textarea matInput formControlName="notes"></textarea>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" i18n>
+    {{ editMode ? 'Update' : 'Create' }}
+  </button>
+</form>

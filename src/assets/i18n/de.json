@@ -17,7 +17,7 @@
     "STUDENT_ID": "Studenten-ID",
     "ENROLLMENT_DATE": "Einschreibedatum",
     "STATUS": "Status",
-    "PROGRAM_LEVEL": "Studiengang",
+    "PROGRAM_LEVEL": "Studienniveau",
     "ACTIONS": "Aktionen",
     "SUBMIT": "Absenden",
     "CREATE": "Erstellen",
@@ -34,5 +34,27 @@
     "INVALID_EMAIL": "Ungültiges E-Mail-Format",
     "LANGUAGE": "Sprache",
     "PHONE": "Telefonnummer"
+  },
+  "ENROLLMENT": {
+    "TITLE": "Einschreibungsliste",
+    "FILTER": {
+      "STUDENT": "Nach Student filtern",
+      "COURSE": "Nach Kurs filtern",
+      "STUDENT_PLACEHOLDER": "Studentenname eingeben...",
+      "COURSE_PLACEHOLDER": "Kursname eingeben..."
+    },
+    "ID": "ID",
+    "STUDENT": "Student",
+    "COURSE": "Kurs",
+    "DATE": "Einschreibedatum",
+    "STATUS": "Status",
+    "GRADE": "Note",
+    "NOTES": "Notizen",
+    "ACTIONS": "Aktionen",
+    "DELETE_CONFIRM": "Möchten Sie diese Einschreibung wirklich löschen?",
+    "DELETE_SUCCESS": "Einschreibung erfolgreich gelöscht!",
+    "DELETE_FAILED": "Löschen der Einschreibung fehlgeschlagen!",
+    "NO_RESULTS": "Keine Einschreibungen gefunden",
+    "LOADING": "Einschreibungen werden geladen..."
   }
 }

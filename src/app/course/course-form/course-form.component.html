@@ -1,0 +1,43 @@
+<h2 *ngIf="!editMode" i18n>Create Course</h2>
+<h2 *ngIf="editMode" i18n>Edit Course</h2>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label i18n>Course Name</mat-label>
+    <input matInput formControlName="courseName" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label i18n>Description</mat-label>
+    <input matInput formControlName="description" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label i18n>Duration</mat-label>
+    <input matInput formControlName="duration" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label i18n>Start Date</mat-label>
+    <input matInput [matDatepicker]="startPicker" formControlName="startDate" />
+    <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+    <mat-datepicker #startPicker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label i18n>End Date</mat-label>
+    <input matInput [matDatepicker]="endPicker" formControlName="endDate" />
+    <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+    <mat-datepicker #endPicker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label i18n>Professor ID</mat-label>
+    <input matInput formControlName="professorId" type="number" />
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" i18n>
+    {{ editMode ? 'Update' : 'Create' }}
+  </button>
+</form>
